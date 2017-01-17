@@ -11,15 +11,20 @@ var stringBuilder = (function () {
     };
     stringBuilder.prototype.reverse = function () {
         var chars = this.data.split('');
-        for (var i = 1; i < chars.length; i++) {
+        for (var i = 0; i < chars.length / 2; i++) {
             var cTmp = chars[i];
-            chars[i] = chars[chars.length - 1];
-            chars[chars.length - 1] = cTmp;
+            var cTmp2 = chars[chars.length - i - 1];
+            chars[i] = cTmp2;
+            chars[chars.length - i - 1] = cTmp;
         }
         this.data = chars.join('');
     };
     return stringBuilder;
 }());
 var word = new stringBuilder('Maddy Austin');
+console.log(word.getString());
+word.setString("Maddy");
+console.log(word.getString());
+word.reverse();
 console.log(word.getString());
 //# sourceMappingURL=stringBuilder.js.map

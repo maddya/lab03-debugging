@@ -14,10 +14,11 @@ class stringBuilder{
 
     public reverse(): void{
         let chars: string[] = this.data.split('');
-        for(var i = 1; i < chars.length; i++){
+        for(var i = 0; i < chars.length / 2; i++){
             let cTmp:string = chars[i];
-            chars[i] = chars[chars.length -1];
-            chars[chars.length - 1] = cTmp;
+            let cTmp2:string = chars[chars.length - i - 1];
+            chars[i] = cTmp2;
+            chars[chars.length - i - 1] = cTmp;
         }
 
         this.data = chars.join('');
@@ -25,4 +26,8 @@ class stringBuilder{
 }
 
 let word:stringBuilder = new stringBuilder('Maddy Austin');
+console.log(word.getString());
+word.setString("Maddy");
+console.log(word.getString());
+word.reverse();
 console.log(word.getString());
